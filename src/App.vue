@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="navbar-nav">
+        <router-link to="/plain" class="nav-item nav-link">Plain</router-link>
+      </div>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -10,14 +14,3 @@ export default {
   name: 'App'
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
