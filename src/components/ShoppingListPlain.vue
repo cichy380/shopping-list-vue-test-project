@@ -51,11 +51,16 @@ export default {
 
       if (text) {
         this.items.push({
+          id: this.generateId(),
           text: text,
           checked: false
         })
         this.newItem = ''
       }
+    },
+
+    generateId: function () {
+      return 'sl-' + Math.random().toString(36).substr(2, 9)
     }
   }
 }
