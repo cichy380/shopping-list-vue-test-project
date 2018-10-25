@@ -14,10 +14,8 @@
     <ul class="list-unstyled">
       <li v-for="item in items" :key="item.id" :class="{'removed':item.checked}">
         <div class="custom-control custom-checkbox">
-
-            <input type="checkbox" v-model="item.checked" class="custom-control-input" :id="item.id" />
-            <label class="custom-control-label" :for="item.id">{{ item.text }}</label>
-
+          <input type="checkbox" v-model="item.checked" class="custom-control-input" :id="item.id" />
+          <label class="custom-control-label" :for="item.id">{{ item.text }}</label>
         </div>
       </li>
     </ul>
@@ -30,7 +28,7 @@
 </template>
 
 <script>
-var data = {
+let data = {
   items: [
     {id: 'sl-01', text: 'Bananas', checked: false},
     {id: 'sl-02', text: 'Apples', checked: true},
@@ -51,7 +49,7 @@ export default {
 
       if (text) {
         this.items.push({
-          id: this.generateId(),
+          id: this._generateId(),
           text: text,
           checked: false
         })
@@ -59,7 +57,7 @@ export default {
       }
     },
 
-    generateId: function () {
+    _generateId: function () {
       return 'sl-' + Math.random().toString(36).substr(2, 9)
     }
   }
