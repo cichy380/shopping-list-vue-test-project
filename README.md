@@ -1,8 +1,10 @@
 # shopping-list
 
-> A Vue.js project
+Shopping List application inspected with examples from "[Learning Vue.js 2](https://books.google.pl/books/about/vue.html?id=nszcDgAAQBAJ)" book. Original application is available on [chudaol](https://github.com/chudaol) / [ShoppingList](https://github.com/chudaol/ShoppingList).
 
 ## Build Setup
+
+Application code is based on the template from [vuejs-templates/webpack](https://github.com/vuejs-templates/webpack).
 
 ``` bash
 # install dependencies
