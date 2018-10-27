@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Plain from '../components/ShoppingListPlain'
 import Components from '../components/ShoppingListComponents'
+import Templates from '../components/ShoppingListTemplates'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/components',
       name: 'ShoppingListComponents',
       component: Components
+    },
+    {
+      path: '/templates',
+      name: 'ShoppingListTemplates',
+      component: Templates
     },
     {
       path: '/',

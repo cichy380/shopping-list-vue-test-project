@@ -4,6 +4,7 @@
       <div class="navbar-nav">
         <router-link to="/plain" class="nav-item nav-link">Plain</router-link>
         <router-link to="/components" class="nav-item nav-link">Components</router-link>
+        <router-link to="/templates" class="nav-item nav-link">Templates</router-link>
       </div>
     </nav>
     <router-view></router-view>

@@ -10,6 +10,28 @@
 
     <strong class="text-muted">data preview:</strong>
     <pre class="p-3 bg-light text-muted"><code>{{ items }}</code></pre>
+
+    <template id="add-item-component-template">
+      <form @submit.prevent="addItem" class="mb-4">
+        <div class="input-group">
+          <input v-model="newItem" placeholder="New item name" type="text" class="form-control">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">Add</button>
+          </div>
+        </div>
+      </form>
+    </template>
+
+    <template id="items-component-template">
+      <ul class="list-unstyled">
+        <li v-for="item in items" :key="item.id" :class="{'removed':item.checked}">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" v-model="item.checked" class="custom-control-input" :id="item.id" />
+            <label class="custom-control-label" :for="item.id">{{ item.text }}</label>
+          </div>
+        </li>
+      </ul>
+    </template>
   </div>
 </template>
 
@@ -22,7 +44,7 @@ let data = {
     {id: 'sl-02', text: 'Apples', checked: true},
     {id: 'sl-03', text: 'Orange', checked: false}
   ],
-  title: 'Shopping List based on Components',
+  title: 'Shopping List based on Template Components',
   newItem: ''
 }
 
@@ -30,14 +52,8 @@ let ItemsComponent = Vue.extend({
   data: function () {
     return data
   },
-  template: `<ul class="list-unstyled">
-      <li v-for="item in items" :key="item.id" :class="{'removed':item.checked}">
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" v-model="item.checked" class="custom-control-input" :id="item.id" />
-          <label class="custom-control-label" :for="item.id">{{ item.text }}</label>
-        </div>
-      </li>
-    </ul>`
+  template: '<i></i>'
+  // template: '#add-item-component-template'
 })
 
 let AddItemComponent = Vue.extend({
@@ -62,18 +78,12 @@ let AddItemComponent = Vue.extend({
       return 'sl-' + Math.random().toString(36).substr(2, 9)
     }
   },
-  template: `<form @submit.prevent="addItem" class="mb-4">
-      <div class="input-group">
-        <input v-model="newItem" placeholder="New item name" type="text" class="form-control">
-        <div class="input-group-append">
-          <button type="submit" class="btn btn-outline-secondary">Add</button>
-        </div>
-      </div>
-    </form>`
+  template: '<i></i>'
+  // template: '#items-component-template'
 })
 
 export default {
-  name: 'ShoppingListComponents',
+  name: 'ShoppingListTemplates',
   components: { ItemsComponent, AddItemComponent },
   data () {
     return data
