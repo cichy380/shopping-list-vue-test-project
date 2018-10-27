@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Plain from '../components/ShoppingListPlain'
 import Components from '../components/ShoppingListComponents'
 import Templates from '../components/ShoppingListTemplates'
+import SingleFileComponents from '../components/ShoppingListSingleFileComponents'
 
 Vue.use(Router)
 
@@ -24,8 +25,13 @@ export default new Router({
       component: Templates
     },
     {
+      path: '/singlefile',
+      name: 'ShoppingListSingleFileComponents',
+      component: SingleFileComponents
+    },
+    {
       path: '/',
-      name: 'HelloWorld',
+      name: 'Homepage',
       component: Plain
     }
   ]

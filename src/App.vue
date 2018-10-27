@@ -5,6 +5,7 @@
         <router-link to="/plain" class="nav-item nav-link">Plain</router-link>
         <router-link to="/components" class="nav-item nav-link">Components</router-link>
         <router-link to="/templates" class="nav-item nav-link">Templates</router-link>
+        <router-link to="/singlefile" class="nav-item nav-link">Single File</router-link>
       </div>
     </nav>
     <router-view></router-view>
