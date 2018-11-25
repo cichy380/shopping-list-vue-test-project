@@ -6,6 +6,7 @@
         <router-link to="/components" class="nav-item nav-link">Components</router-link>
         <router-link to="/templates" class="nav-item nav-link">Templates</router-link>
         <router-link to="/singlefile" class="nav-item nav-link">Single File</router-link>
+        <router-link to="/multi" class="nav-item nav-link">Multi Lists</router-link>
       </div>
     </nav>
     <router-view></router-view>
