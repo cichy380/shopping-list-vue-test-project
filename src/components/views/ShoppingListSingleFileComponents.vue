@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import AddItemComponent from './AddItemComponent'
-import ItemsComponent from './ItemsComponent'
+import AddItemComponent from './../AddItemComponent'
+import ItemsComponent from './../ItemsComponent'
 
 let data = {
   items: [

@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Plain from '../components/ShoppingListPlain'
-import Components from '../components/ShoppingListComponents'
-import Templates from '../components/ShoppingListTemplates'
-import SingleFileComponents from '../components/ShoppingListSingleFileComponents'
+import Plain from '../components/views/ShoppingListPlain'
+import Components from '../components/views/ShoppingListComponents'
+import Templates from '../components/views/ShoppingListTemplates'
+import SingleFileComponents from '../components/views/ShoppingListSingleFileComponents'
 
 Vue.use(Router)
 
