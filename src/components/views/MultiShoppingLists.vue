@@ -56,11 +56,7 @@ export default {
   methods: {
     selectList (selectedListId) {
       this.shoppinglists.forEach(list => {
-        if (list.id === selectedListId) {
-          list.active = true
-        } else {
-          list.active = false
-        }
+        list.active = (list.id === selectedListId)
       })
     }
   }

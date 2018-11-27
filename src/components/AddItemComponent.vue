@@ -3,7 +3,7 @@
     <div class="input-group">
       <input v-model="newItem" placeholder="New item name" type="text" class="form-control">
       <div class="input-group-append">
-        <button type="submit" class="btn btn-outline-secondary">Add</button>
+        <button type="submit" class="btn btn-primary">Add</button>
       </div>
     </div>
   </form>
