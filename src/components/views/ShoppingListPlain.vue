@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { generateId } from './../../common/utils'
+
 let data = {
   items: [
     {id: 'sl-01', text: 'Bananas', checked: false},
@@ -51,16 +53,12 @@ export default {
 
       if (text) {
         this.items.push({
-          id: this._generateId(),
+          id: generateId(),
           text: text,
           checked: false
         })
         this.newItem = ''
       }
-    },
-
-    _generateId: function () {
-      return 'sl-' + Math.random().toString(36).substr(2, 9)
     }
   }
 }

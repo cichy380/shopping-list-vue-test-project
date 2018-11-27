@@ -15,6 +15,7 @@
 
 <script>
 import Vue from 'vue'
+import { generateId } from './../../common/utils'
 
 let data = {
   items: [
@@ -52,16 +53,12 @@ let AddItemComponent = Vue.extend({
 
       if (text) {
         this.items.push({
-          id: this._generateId(),
+          id: generateId(),
           text: text,
           checked: false
         })
         this.newItem = ''
       }
-    },
-
-    _generateId: function () {
-      return 'sl-' + Math.random().toString(36).substr(2, 9)
     }
   },
   template: `<form @submit.prevent="addItem" class="mb-4">

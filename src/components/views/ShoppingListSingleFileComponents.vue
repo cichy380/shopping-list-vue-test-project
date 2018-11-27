@@ -15,6 +15,7 @@
 <script>
 import AddItemComponent from './../AddItemComponent'
 import ItemsComponent from './../ItemsComponent'
+import { generateId } from './../../common/utils'
 
 let data = {
   items: [
@@ -35,14 +36,10 @@ export default {
   methods: {
     addItem: function (text) {
       this.items.push({
-        id: this._generateId(),
+        id: generateId(),
         text: text,
         checked: false
       })
-    },
-
-    _generateId: function () {
-      return 'sl-' + Math.random().toString(36).substr(2, 9)
     }
   }
 }
