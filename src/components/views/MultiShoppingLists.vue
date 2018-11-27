@@ -3,12 +3,12 @@
     <h2 class="mb-4">Multi Shopping Lists</h2>
 
     <ul class="nav nav-tabs">
-      <li class="nav-item" v-for="list in lists" :key="list.id">
+      <li class="nav-item" v-for="list in shoppinglists" :key="list.id">
         <button class="nav-link" :class="{'active': list.active}" @click="selectList(list.id)">{{ list.title }}</button>
       </li>
     </ul>
 
-    <shopping-list-component v-for="list in lists"
+    <shopping-list-component v-for="list in shoppinglists"
                              :key="list.id"
                              :items="list.items"
                              :title="list.title"
@@ -16,7 +16,7 @@
 
     <hr>
     <strong class="text-muted">data preview:</strong>
-    <pre class="p-3 bg-light text-muted"><code>{{ lists }}</code></pre>
+    <pre class="p-3 bg-light text-muted"><code>{{ shoppinglists }}</code></pre>
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
   components: { ShoppingListComponent },
   data () {
     return {
-      lists: [
+      shoppinglists: [
         {
           id: 'food',
           title: 'Food list',
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     selectList (selectedListId) {
-      this.lists.forEach(list => {
+      this.shoppinglists.forEach(list => {
         if (list.id === selectedListId) {
           list.active = true
         } else {
