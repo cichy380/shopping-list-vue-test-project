@@ -12,7 +12,8 @@
                              :key="list.id"
                              :items="list.items"
                              :title="list.title"
-                             v-show="list.active"></shopping-list-component>
+                             v-show="list.active"
+                             @change-title="changeTitle"></shopping-list-component>
 
     <hr>
     <strong class="text-muted">data preview:</strong>
@@ -57,6 +58,14 @@ export default {
     selectList (selectedListId) {
       this.shoppinglists.forEach(list => {
         list.active = (list.id === selectedListId)
+      })
+    },
+
+    changeTitle (text) {
+      this.shoppinglists.forEach(list => {
+        if (list.active) {
+          list.title = text
+        }
       })
     }
   }

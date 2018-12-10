@@ -2,7 +2,7 @@
   <div class="shopping-list mt-4">
     <header class="mb-4">
       <h2 v-show="!editTitleMode" @click="editTitleMode=true" class="mb-0">{{ title }}</h2>
-      <change-title-component v-model="title" v-show="editTitleMode"></change-title-component>
+      <change-title-component :title="title" @change="changeTitle" v-show="editTitleMode"></change-title-component>
     </header>
 
     <add-item-component @add="addItem"></add-item-component>
@@ -32,6 +32,12 @@ export default {
         text: text,
         checked: false
       })
+    },
+
+    changeTitle: function (text) {
+      console.log(text)
+      this.editTitleMode = false
+      this.$emit('change-title', text)
     }
   }
 }

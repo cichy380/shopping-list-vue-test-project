@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="changeText">
     <div class="input-group input-group-lg">
-      <input :value="value" placeholder="New title" type="text" class="form-control">
+      <input v-model="newText" placeholder="New title" type="text" class="form-control">
       <div class="input-group-append">
         <button type="submit" class="btn btn-outline-secondary">Change</button>
       </div>
@@ -11,10 +11,10 @@
 
 <script>
 export default {
-  props: ['value'],
+  props: ['title'],
   data: function () {
     return {
-      newText: ''
+      newText: this.title
     }
   },
   methods: {
@@ -23,7 +23,6 @@ export default {
 
       if (text) {
         this.$emit('change', text)
-        this.newText = ''
       }
     }
   }
