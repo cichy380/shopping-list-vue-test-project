@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="changeText">
+  <form @submit.prevent="changeTitle({title: newTitle, id: id})">
     <div class="input-group input-group-lg">
-      <input v-model="newText" placeholder="New title" type="text" class="form-control">
+      <input v-model="newTitle" placeholder="New title" type="text" class="form-control">
       <div class="input-group-append">
         <button type="submit" class="btn btn-outline-secondary">Change</button>
       </div>
@@ -10,21 +10,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  props: ['title'],
+  props: ['title', 'id'],
   data: function () {
     return {
-      newText: this.title
+      newTitle: this.title
     }
   },
   methods: {
-    changeText: function () {
-      let text = this.newText.trim()
-
-      if (text) {
-        this.$emit('change', text)
-      }
-    }
+    ...mapActions(['changeTitle'])
   }
 }
 </script>

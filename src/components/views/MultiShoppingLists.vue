@@ -10,10 +10,10 @@
 
     <shopping-list-component v-for="list in shoppinglists"
                              :key="list.id"
+                             :id="list.id"
                              :items="list.items"
                              :title="list.title"
-                             v-show="list.active"
-                             @change-title="changeTitle"></shopping-list-component>
+                             v-show="list.active"></shopping-list-component>
 
     <hr>
     <strong class="text-muted">data preview:</strong>
@@ -22,50 +22,21 @@
 </template>
 
 <script>
+import store from './../../vuex/store'
+import { mapGetters } from 'vuex'
 import ShoppingListComponent from './../ShoppingListComponent'
 
 export default {
   name: 'MultiShoppingLists',
+  store,
   components: { ShoppingListComponent },
-  data () {
-    return {
-      shoppinglists: [
-        {
-          id: 'food',
-          title: 'Food list',
-          items: [
-            {id: 'sl-01', text: 'Bananas', checked: false},
-            {id: 'sl-02', text: 'Apples', checked: true},
-            {id: 'sl-03', text: 'Orange', checked: false}
-          ],
-          active: true
-        },
-        {
-          id: 'clothes',
-          title: 'Clothes list',
-          items: [
-            {id: 'sl-04', text: 'Shoes', checked: false},
-            {id: 'sl-05', text: 'T-shirt', checked: false},
-            {id: 'sl-06', text: 'Hat', checked: true},
-            {id: 'sl-07', text: 'Jacket', checked: false}
-          ],
-          active: false
-        }
-      ]
-    }
-  },
+  computed: mapGetters({
+    shoppinglists: 'getLists'
+  }),
   methods: {
     selectList (selectedListId) {
       this.shoppinglists.forEach(list => {
         list.active = (list.id === selectedListId)
-      })
-    },
-
-    changeTitle (text) {
-      this.shoppinglists.forEach(list => {
-        if (list.active) {
-          list.title = text
-        }
       })
     }
   }

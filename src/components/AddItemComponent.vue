@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="addItem" class="mb-4">
+  <form @submit.prevent="addItem({item: newItem, id: id})" class="mb-4">
     <div class="input-group">
       <input v-model="newItem" placeholder="New item name" type="text" class="form-control">
       <div class="input-group-append">
@@ -10,21 +10,17 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
+  props: ['id'],
   data: function () {
     return {
       newItem: ''
     }
   },
   methods: {
-    addItem: function () {
-      let text = this.newItem.trim()
-
-      if (text) {
-        this.$emit('add', text)
-        this.newItem = ''
-      }
-    }
+    ...mapActions(['addItem'])
   }
 }
 </script>
