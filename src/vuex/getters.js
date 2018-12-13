@@ -1,4 +1,5 @@
 export default {
   getLists: state => state.shoppinglists,
-  activeItemsByListIdCount: state => id => state.shoppinglists.find(list => id === list.id).items.filter(item => !item.checked).length
+  activeItemsByListId: state => id => state.shoppinglists.find(list => id === list.id).items.filter(item => !item.checked),
+  activeItemsByListIdCount: (state, getters) => id => getters.activeItemsByListId(id).length
 }
