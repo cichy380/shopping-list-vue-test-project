@@ -4,7 +4,10 @@
 
     <ul class="nav nav-tabs">
       <li class="nav-item" v-for="list in shoppinglists" :key="list.id">
-        <button class="nav-link" :class="{'active': list.active}" @click="selectList(list.id)">{{ list.title }}</button>
+        <button class="nav-link" :class="{'active': list.active}" @click="selectList(list.id)">
+          {{ list.title }}
+          <span class="badge badge-danger" v-show="activeItemsCount(list.id)">{{ activeItemsCount(list.id) }}</span>
+        </button>
       </li>
     </ul>
 
@@ -31,7 +34,8 @@ export default {
   store,
   components: { ShoppingListComponent },
   computed: mapGetters({
-    shoppinglists: 'getLists'
+    shoppinglists: 'getLists',
+    activeItemsCount: 'activeItemsByListIdCount'
   }),
   methods: {
     selectList (selectedListId) {
