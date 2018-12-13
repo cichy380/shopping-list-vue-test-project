@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="addItem({item: newItem, id: id})" class="mb-4">
+  <form @submit.prevent="onSubmit" class="mb-4">
     <div class="input-group">
       <input v-model="newItem" placeholder="New item name" type="text" class="form-control">
       <div class="input-group-append">
@@ -20,6 +20,10 @@ export default {
     }
   },
   methods: {
+    onSubmit () {
+      this.addItem({item: this.newItem, id: this.id})
+      this.newItem = ''
+    },
     ...mapActions(['addItem'])
   }
 }
