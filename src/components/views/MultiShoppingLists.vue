@@ -53,6 +53,5 @@ export default {
   .nav-link:hover,
   .nav-link.active {
     top: 0;
-
   }
 </style>

@@ -5,19 +5,19 @@
       <change-title-component :id="id" :title="title" v-show="editTitleMode"></change-title-component>
     </header>
 
-    <add-item-component :id="id"></add-item-component>
+    <add-item-vuex-component :id="id"></add-item-vuex-component>
 
     <items-component :items="items"></items-component>
   </div>
 </template>
 
 <script>
-import AddItemComponent from './AddItemComponent'
+import AddItemVuexComponent from './AddItemVuexComponent'
 import ItemsComponent from './ItemsComponent'
 import ChangeTitleComponent from './ChangeTitleComponent'
 
 export default {
-  components: { AddItemComponent, ItemsComponent, ChangeTitleComponent },
+  components: { AddItemVuexComponent, ItemsComponent, ChangeTitleComponent },
   props: ['id', 'title', 'items'],
   data () {
     return {
