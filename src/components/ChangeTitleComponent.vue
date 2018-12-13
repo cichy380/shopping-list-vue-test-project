@@ -16,7 +16,7 @@ export default {
   props: ['title', 'id'],
   data: function () {
     return {
-      newTitle: ''
+      newTitle: this.title
     }
   },
   methods: {
