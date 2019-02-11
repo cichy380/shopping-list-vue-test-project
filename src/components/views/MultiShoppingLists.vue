@@ -1,6 +1,6 @@
 <template>
   <div class="container pt-4 pb-4">
-    <h2 class="mb-4">Multi Shopping Lists</h2>
+    <h2 class="mb-4">Multi Shopping Lists from Server</h2>
 
     <ul class="nav nav-tabs">
       <li class="nav-item" v-for="list in shoppinglists" :key="list.id">
@@ -26,7 +26,7 @@
 
 <script>
 import store from './../../vuex/store'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import ShoppingListComponent from './../ShoppingListComponent'
 
 export default {
@@ -37,7 +37,11 @@ export default {
     shoppinglists: 'getLists',
     activeItemsCount: 'activeItemsByListIdCount'
   }),
+  mounted () {
+    this.populateShoppingLists()
+  },
   methods: {
+    ...mapActions(['populateShoppingLists']),
     selectList (selectedListId) {
       this.shoppinglists.forEach(list => {
         list.active = (list.id === selectedListId)

@@ -5,7 +5,7 @@
       <change-title-component :id="id" :title="title" v-show="editTitleMode"></change-title-component>
     </header>
 
-    <add-item-vuex-component :id="id"></add-item-vuex-component>
+    <!--<add-item-vuex-component :id="id"></add-item-vuex-component>-->
 
     <items-component :items="items"></items-component>
   </div>
