@@ -12,7 +12,7 @@ export default {
   addNewShoppingList: (data) => {
     return ShoppingListsResource.save(data)
   },
-  updateNewShoppingList: (data) => {
+  updateShoppingList: (data) => {
     return ShoppingListsResource.update({id: data.id}, data)
   },
   daleteNewShoppingList: (data) => {
