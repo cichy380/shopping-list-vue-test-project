@@ -19,8 +19,7 @@
           "text": "Orange",
           "checked": false
         }
-      ],
-      "active": true
+      ]
     },
     {
       "id": "clothes",
@@ -46,8 +45,7 @@
           "text": "Jacket",
           "checked": false
         }
-      ],
-      "active": false
+      ]
     }
   ]
 }

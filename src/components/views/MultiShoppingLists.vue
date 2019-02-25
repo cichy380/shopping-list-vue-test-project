@@ -3,20 +3,20 @@
     <h2 class="mb-4">Multi Shopping Lists from Server</h2>
 
     <ul class="nav nav-tabs">
-      <li class="nav-item" v-for="list in shoppinglists" :key="list.id">
-        <button class="nav-link" :class="{'active': list.active}" @click="selectList(list.id)">
+      <li class="nav-item" v-for="(list, index) in shoppinglists" :key="list.id">
+        <button class="nav-link" :class="{'active': activeTab === index}" @click="activeTab=index">
           {{ list.title }}
           <span class="badge badge-danger" v-show="activeItemsCount(list.id)">{{ activeItemsCount(list.id) }}</span>
         </button>
       </li>
     </ul>
 
-    <shopping-list-component v-for="list in shoppinglists"
+    <shopping-list-component v-for="(list, index) in shoppinglists"
                              :key="list.id"
                              :id="list.id"
                              :items="list.items"
                              :title="list.title"
-                             v-show="list.active"></shopping-list-component>
+                             v-show="activeTab === index"></shopping-list-component>
 
     <hr>
     <strong class="text-muted">data preview:</strong>
@@ -33,6 +33,11 @@ export default {
   name: 'MultiShoppingLists',
   store,
   components: { ShoppingListComponent },
+  data () {
+    return {
+      activeTab: 0
+    }
+  },
   computed: mapGetters({
     shoppinglists: 'getLists',
     activeItemsCount: 'activeItemsByListIdCount'
@@ -41,12 +46,7 @@ export default {
     this.populateShoppingLists()
   },
   methods: {
-    ...mapActions(['populateShoppingLists']),
-    selectList (selectedListId) {
-      this.shoppinglists.forEach(list => {
-        list.active = (list.id === selectedListId)
-      })
-    }
+    ...mapActions(['populateShoppingLists'])
   }
 }
 </script>
