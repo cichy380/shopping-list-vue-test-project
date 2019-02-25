@@ -1,3 +1,4 @@
+import _ from 'underscore'
 import { generateId } from './../common/utils'
 import * as types from './mutation_types'
 import getters from './getters'
@@ -10,7 +11,7 @@ export default {
     state.shoppinglists = lists
   },
   [types.ADD_ITEM] (state, data) {
-    state.shoppinglists.find(list => list.id === data.id).items.push({
+    _.findWhere(state.shoppinglists, {id: data.id}).items.push({
       id: generateId(),
       text: data.item,
       checked: false
